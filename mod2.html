@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 2</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <button type="button" id="mod2button">
+        Module 2
+    </button>
+    <script>
+        var msg = window.messaging;
+        msg.subscribe('mod3:button:click', function(data){
+            console.log("Mod2 Received Mod3 Event", data);
+            button.textContent = data
+        })
+        msg.subscribe('mod1:button:click', function(){
+            console.log("Mod2 Received Mod1 Event");
+        })
+
+        var button = document.getElementById("mod2button");
+        button.onclick = function() {
+            console.log("Module 2 Clicked")
+            msg.send({event: "mod2:button:click", payload: "Hello"})
+        }
+    </script>
+</body>
+</html>
