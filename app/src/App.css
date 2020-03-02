@@ -29,3 +29,27 @@ footer {
   min-height: 60px;
   background-color: #e6e6e6;
 }
+
+.main-column {
+  flex: 2;
+}
+
+.side-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.side-column .top {
+  flex: 3;
+}
+
+.side-column .bottom {
+  flex: 1;
+}
+
+iframe {
+  border: none;
+  width: 100%;
+  height: 100%;
+}
