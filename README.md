@@ -1,48 +1,53 @@
 # Micro Front End PoC
 
-## Usage
+## Overview
 
-```sh
-npm install
-```
-
-## Start web server
-```sh
-npm start
-```
-
-## Project Description
-
-This repo is broken down into 4 projects
+This repo is broken down into 4 projects and a server
 1. App
 2. Fragment Module One
 3. Fragment Module Two
 4. Fragment Module Three
+5. Server
 
-**App** is responsible for layout and rendering fragment modules
+**App** is responsible for layout and rendering fragment modules.
 
 **Fragments** are single purpose mini apps that receive parameters via query strings and events. Events are based off a Pub/Sub model documented in the fragment README.
 
+**Server** is responsible all web request for app, fragments and microservice api's.
+
+
+## Usage
+
+### Install dependencies
+```sh
+npm install
+```
+
+### Start web server
+```sh
+npm start
+```
+
 ## Messaging
 
-### send(message: string)
+### send(event: string)
 ```js
 window.messaging.send("module-one-button-click")
 ```
 
-### send(message: object)
+### send(event: object)
 ```js
 window.messaging.send({event: "module-two-button-click", payload: "buy"})
 ```
 
-### subscribe(eventName, callback())
+### subscribe(event, callback())
 ```js
 window.messaging.subscribe("module-one-button-click", function(){
     console.log("Module Two Received Module One Event");
 })
 ```
 
-### subscribe(eventName, callback(data))
+### subscribe(event, callback(data))
 ```js
 window.messaging.subscribe("module-two-button-click", function(data) {
     console.log(data); // buy
