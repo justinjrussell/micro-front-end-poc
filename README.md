@@ -6,11 +6,12 @@
 npm install
 ```
 
+## Start web server
 ```sh
 npm start
 ```
 
-## Documentation
+## Project Description
 
 This repo is broken down into 4 projects
 1. App
