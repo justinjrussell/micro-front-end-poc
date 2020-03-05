@@ -13,7 +13,7 @@
             }
         })
         function parseMesssage(data) {
-            console.log(data)
+            console.log('parseMesssage', data)
             if(typeof data === "string"){
                 window.dispatchEvent(new CustomEvent(data), {
                     bubbles: true

@@ -15,12 +15,16 @@ This repo is broken down into 4 projects and a server
 
 **Server** is responsible all web request for app, fragments and microservice api's.
 
-
 ## Usage
 
 ### Install dependencies
 ```sh
 npm install
+```
+
+### Build packages
+```sh
+npm run build
 ```
 
 ### Start web server
