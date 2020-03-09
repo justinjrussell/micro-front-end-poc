@@ -31,7 +31,7 @@ footer {
 }
 
 .main-column {
-  flex: 2;
+  flex: 3;
 }
 
 .side-column {
@@ -41,11 +41,11 @@ footer {
 }
 
 .side-column .top {
-  flex: 3;
+  flex: 1;
 }
 
 .side-column .bottom {
-  flex: 1;
+  flex: 4;
 }
 
 iframe {

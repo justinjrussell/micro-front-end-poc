@@ -1,26 +1,27 @@
-(function(){
-    window.onload = function(){
-        window.messaging = new Messaging();
-        for(var i = 0; i < window.frames.length; i++) {
-            window.frames[i].messaging = messaging;
+(function(win){
+    win.onload = function(){
+        const messaging = new Messaging();
+        win.messaging = messaging
+        for(var i = 0; i < win.frames.length; i++) {
+            win.frames[i].messaging = messaging;
         }
     }
 
     function Messaging() {
-        window.addEventListener("message", function(e){
-            if(e.origin === window.location.origin){
+        win.addEventListener("message", function(e){
+            if(e.origin === win.location.origin){
                 parseMesssage(e.data);
             }
         })
         function parseMesssage(data) {
             console.log('parseMesssage', data)
             if(typeof data === "string"){
-                window.dispatchEvent(new CustomEvent(data), {
+                win.dispatchEvent(new CustomEvent(data), {
                     bubbles: true
                 })
             }
             else if(data.event){
-                window.dispatchEvent(new CustomEvent(data.event, {
+                win.dispatchEvent(new CustomEvent(data.event, {
                     detail: {
                         payload: data.payload
                     }
@@ -30,10 +31,10 @@
             }
         }
         function send(message){
-            window.postMessage(message);
+            win.postMessage(message);
         }
         function subscribe(event, callback){
-            window.addEventListener(event, function(e){
+            win.addEventListener(event, function(e){
                 if(e.detail && e.detail.payload){
                     callback(e.detail.payload)
                 }else {
@@ -46,5 +47,5 @@
             subscribe: subscribe
         }
     }
-})()
+})(window)
 

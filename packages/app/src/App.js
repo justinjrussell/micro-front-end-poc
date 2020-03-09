@@ -1,4 +1,5 @@
 import React from 'react';
+import { Fragment } from './Fragment'
 import './App.css';
 
 function App() {
@@ -7,25 +8,25 @@ function App() {
       <header>Header</header>
       <main>
         <div className="main-column">
-          <iframe 
-            name="fragment-module-one" 
+          <Fragment 
             id="fragment-module-one" 
-            src="/fragment/module-one/" 
+            name="fragment-module-one" 
+            url="/fragment/module-one/" 
           />
         </div>
         <div className="side-column">
           <div className="top">
-            <iframe 
+            <Fragment 
               name="fragment-module-two" 
               id="fragment-module-two" 
-              src="/fragment/module-two/" 
+              url="/fragment/module-two/" 
             />
           </div>
           <div className="bottom">
-            <iframe 
+            <Fragment 
               name="fragment-module-three" 
               id="fragment-module-three" 
-              src="/fragment/module-three/" 
+              url="/fragment/module-three/" 
             />
           </div>
         </div>
